@@ -1,6 +1,6 @@
-## Welcome to GitHub Pages
+## Mill Kong
 
-You can use the [editor on GitHub](https://github.com/BergaDev/SDDProject/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+The best game that you will ever mark
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
