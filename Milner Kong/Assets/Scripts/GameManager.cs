@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         NewGame();
+        Debug.Log("Initalised correctly");
     }
 
     private void NewGame()
