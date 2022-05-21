@@ -81,7 +81,9 @@ public class Player : MonoBehaviour
         } else {
             direction += Physics2D.gravity * Time.deltaTime;
         }
-
+// These controls axis controls refer to the in engine "Input manager" menu,
+// doing so allows quicker control of mapped controls from one area, to change charcter control we must change 
+// mapping here. Work smarter not harder 
         direction.x = Input.GetAxis("Horizontal") * moveSpeed;
 
         // Prevent gravity from building up infinitely
