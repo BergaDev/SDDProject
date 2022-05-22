@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
     private int level = 4;
     //Update this number with the first level of the game from build order, this fixes the infinte loop that can occur when loading the LoadFirst scene
     
-    private int lives;
+    public static int lives;
     private int score;
     //public int CorrectSceneLoad;
     //Ensures that level transition and deaths work correctly, if not causes character to float
-
+    //Text LivesHUD;
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -68,14 +71,21 @@ public class GameManager : MonoBehaviour
         lives--;
 
         if (lives <= 0) {
-            NewGame();
-            Debug.Log("Subprogram Test, new game started");
+            //Destroy(DontDestroyOnLoad);
+            
+            LoadLevel(7);
+           // DestroyObjects();
+            Debug.Log("Subprogram Test, sending to DeathScene");
         } else {
             LoadLevel(level);
-           // LivesHUD.text="Lives left: " +lives;
+           // LivesHUD.text = lives.ToString();
          
             Debug.Log("Subprogram test, lives left = " + lives);
         }
+    }
+    public void DestroyObjects()
+    {
+        Destroy (GameObject.FindWithTag("PublicVar"));
     }
 
     public void CorrectSceneLoad()
