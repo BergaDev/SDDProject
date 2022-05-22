@@ -72,6 +72,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("Subprogram Test, new game started");
         } else {
             LoadLevel(level);
+           // LivesHUD.text="Lives left: " +lives;
+         
             Debug.Log("Subprogram test, lives left = " + lives);
         }
     }
