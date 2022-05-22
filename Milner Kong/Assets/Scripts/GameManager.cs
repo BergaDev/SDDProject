@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
         lives = 3;
         score = 0;
 
-        LoadLevel(5);
+        LoadLevel(3);
         Debug.Log("Loading LevelOrder " + level);
         //Update this number to match load order in build settings, if not set to the right number a wrong level will be loaded instead
         //If LoadFirst is the number selected the game will get stuck on this level, this caused signicant problems the first time I was building the project
