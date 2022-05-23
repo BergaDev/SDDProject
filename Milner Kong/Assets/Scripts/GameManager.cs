@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
    // public Timer script;
     private void Start()
     {
+        
         DontDestroyOnLoad(gameObject);
         NewGame();
         
@@ -138,4 +139,6 @@ public class GameManager : MonoBehaviour
         if 
     }
     */
+
+   
 }
