@@ -11,20 +11,39 @@ public class GameManager : MonoBehaviour
     
     public static int lives;
     private int score;
-    //public int CorrectSceneLoad;
-    //Ensures that level transition and deaths work correctly, if not causes character to float
-    //Text LivesHUD;
+    
+    public int Round = 0;
+
+   // public float timer = 0.0f;
+   // public int seconds = 0;
+    public float timer = 0.0f;
+    public static int timecheck = 0;
+
+   
+    
+   // public Timer script;
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
         NewGame();
+        
         Debug.Log("Initalised correctly");
+    }
+    void Update()
+    {
+        timer += Time.deltaTime;
+        timecheck = (int) timer;
+        //int seconds = timer % 60;
+        //Debug.Log("Time is " + timecheck);
+        //Used for testing that time is actually counting
     }
 
     private void NewGame()
     {
         lives = 3;
         score = 0;
+        Round = 1;
+        
 
         LoadLevel(3);
         Debug.Log("Loading LevelOrder " + level);
@@ -68,19 +87,25 @@ public class GameManager : MonoBehaviour
 
     public void LevelFailed()
     {
-        lives--;
+        lives = lives - 1;
+// Extra timechecking here to correct for bug where game would loose 2 lives instead of one on death
+    if (lives == 0) {
 
-        if (lives <= 0) {
-            //Destroy(DontDestroyOnLoad);
+            if (timecheck <= 4){
+                TimeLOL();
+            } 
+            else {
+                LoadLevel(7);
+                Debug.Log("Subprogram Test, sending to DeathScene");
+            }
             
-            LoadLevel(7);
-           // DestroyObjects();
-            Debug.Log("Subprogram Test, sending to DeathScene");
-        } else {
+            
+        } 
+        else if (timecheck>=4){
+            timer = 0.0f;
             LoadLevel(level);
-           // LivesHUD.text = lives.ToString();
-         
             Debug.Log("Subprogram test, lives left = " + lives);
+            
         }
     }
     public void DestroyObjects()
@@ -99,5 +124,18 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    //Used to correct for loading the wrong scene in engine, corrects jesus/floating error
+
+    public void TimeLOL()
+    {
+        Debug.Log("Error caught, corrected");
+        lives = lives + 1;
+
+        //Double lives lost corrected
+    }
+    /*
+    public void EnsureOneHit()
+    {
+        if 
+    }
+    */
 }

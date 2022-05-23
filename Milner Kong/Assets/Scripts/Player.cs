@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     private bool grounded;
     private bool climbing;
 
+    public int Hit = 0;
     public float moveSpeed = 3f;
     public float jumpStrength = 4f;
 
