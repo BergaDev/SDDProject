@@ -833,14 +833,14 @@ PrefabInstance:
     - target: {fileID: 7460934567890073197, guid: bb2e8cec6bb82fe4f997ba554e557f48, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 26ffeb7956d41416fb4af8c27c1bf64e, type: 3}
+      objectReference: {fileID: 21300000, guid: 35a89fec63cb3a14b873e7c08648cb50, type: 3}
     - target: {fileID: 7460934567890073198, guid: bb2e8cec6bb82fe4f997ba554e557f48, type: 3}
       propertyPath: m_Name
       value: Milner
       objectReference: {fileID: 0}
     - target: {fileID: 7460934567890073198, guid: bb2e8cec6bb82fe4f997ba554e557f48, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb2e8cec6bb82fe4f997ba554e557f48, type: 3}
@@ -2491,7 +2491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7460934567890073198, guid: bb2e8cec6bb82fe4f997ba554e557f48, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb2e8cec6bb82fe4f997ba554e557f48, type: 3}
