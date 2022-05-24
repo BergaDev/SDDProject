@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
     {
         timer += Time.deltaTime;
         timecheck = (int) timer;
-        //int seconds = timer % 60;
         //Debug.Log("Time is " + timecheck);
         //Used for testing that time is actually counting
     }
@@ -44,7 +43,7 @@ public class GameManager : MonoBehaviour
         lives = 3;
         score = 0;
         Round = 1;
-        
+        // Setting variables to correct counts for game start
 
         LoadLevel(3);
         Debug.Log("Loading LevelOrder " + level);
@@ -114,17 +113,7 @@ public class GameManager : MonoBehaviour
         Destroy (GameObject.FindWithTag("PublicVar"));
     }
 
-    public void CorrectSceneLoad()
-    {
-       int CorrectSceneLoad = 1;
-
-        if (CorrectSceneLoad <= 0) {
-                Debug.Log("Not loaded correctly, start from LoadFirst scene");
-        } else {
-                Debug.Log("Correct scene load");
-        }
-
-    }
+    
 
     public void TimeLOL()
     {
