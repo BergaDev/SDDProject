@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     //Update this number with the first level of the game from build order, this fixes the infinte loop that can occur when loading the LoadFirst scene
     
     public static int lives;
-    private int score;
+    public static int score;
     
     public int Round = 0;
 
@@ -122,6 +122,8 @@ public class GameManager : MonoBehaviour
 
         //Double lives lost corrected
     }
+
+    
     /*
     public void EnsureOneHit()
     {

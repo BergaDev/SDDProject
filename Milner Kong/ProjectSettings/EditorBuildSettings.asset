@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameWon.unity
     guid: 8eb1134ebab40452597d86520d447a56
+  - enabled: 1
+    path: Assets/Scenes/Difficulty.unity
+    guid: 38c3f9b114784407383b6ff34787b68b
   m_configObjects: {}
