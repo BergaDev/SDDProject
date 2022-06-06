@@ -16,7 +16,7 @@ public class PointsHUD : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PointsCount = GameManager.score;
+        PointsCount = GameManager.gamescore;
         PointsDisplay.text = PointsCount.ToString();
     }
 }

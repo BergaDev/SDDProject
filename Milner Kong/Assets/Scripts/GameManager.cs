@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     
     public static int lives;
     public static int score;
+    public static int gamescore;
     
     public int Round = 0;
 
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     {
         timer += Time.deltaTime;
         timecheck = (int) timer;
+        gamescore = score - timecheck;
         //Debug.Log("Time is " + timecheck);
         //Used for testing that time is actually counting
     }
@@ -41,7 +43,7 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         lives = 3;
-        score = 0;
+        score = 1000;
         Round = 1;
         // Setting variables to correct counts for game start
 
