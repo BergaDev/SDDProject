@@ -6,24 +6,23 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    private int level = 4;
+    private int level = 2;
     //Update this number with the first level of the game from build order, this fixes the infinte loop that can occur when loading the LoadFirst scene
     
     public static int lives;
-    public static int score;
+    public static int score = 10000;
     public static int gamescore;
     public static int diffchosen;
     public int Round = 0;
 
-   // public float timer = 0.0f;
-   // public int seconds = 0;
+   
     public float timer = 0.0f;
     public static int timecheck = 0;
 	public static int highscore = 0;
 
    
     
-   // public Timer script;
+ 
     private void Start()
     {
         
@@ -44,6 +43,10 @@ public class GameManager : MonoBehaviour
 		if (gamescore >= highscore){
 		highscore = gamescore;
 		}
+        if (gamescore <0){
+            LoadLevel(9);
+            //Time ran out, death
+        }
 		
 		
         //Debug.Log("Time is " + timecheck);
@@ -53,7 +56,7 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         lives = 3;
-        //score = 1000;
+        score = 0;
         Round = 1;
         // Setting variables to correct counts for game start
 		
@@ -70,7 +73,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("You idiot");
         }
 		
-        LoadLevel(3);
+        LoadLevel(2);
         Debug.Log("Loading LevelOrder " + level);
         //Update this number to match load order in build settings, if not set to the right number a wrong level will be loaded instead
         //If LoadFirst is the number selected the game will get stuck on this level, this caused signicant problems the first time I was building the project
@@ -115,7 +118,7 @@ public class GameManager : MonoBehaviour
     public void LevelFailed()
     {
         lives = lives - 1;
-// Extra timechecking here to correct for bug where game would loose 2 lives instead of one on death
+        // Extra timechecking here to correct for bug where game would loose 2 lives instead of one on death
     if (lives == 0) {
 
             if (timecheck <= 4){
@@ -123,7 +126,8 @@ public class GameManager : MonoBehaviour
 				//Corrects for double death
             } 
             else {
-                LoadLevel(7);
+                LoadLevel(6);
+                //Update scene number when reordering scenes
                 Debug.Log("Subprogram Test, sending to DeathScene");
             }
             
@@ -133,7 +137,7 @@ public class GameManager : MonoBehaviour
             timer = 0.0f;
             LoadLevel(level);
             Debug.Log("Subprogram test, lives left = " + lives);
-            
+            HitCalc();            
         }
     }
     public void DestroyObjects()
@@ -151,7 +155,18 @@ public class GameManager : MonoBehaviour
         //Double lives lost corrected
     }
 
-    
+    public void HitCalc()
+    {
+         if (diffchosen == 1){
+                score = (score - 100);
+            }
+            else if (diffchosen == 2){
+                score = (score - 150);
+            }
+            else if (diffchosen == 3){
+                score = (score - 200);
+            }
+    }
     
    
 }

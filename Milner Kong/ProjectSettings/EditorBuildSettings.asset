@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 6e9a15894d9060d40b62cd251a01ca9b
   - enabled: 1
-    path: Assets/Scenes/FeedBack.unity
-    guid: e2b2fd9a0ab414abcb374c63e6ab05f1
-  - enabled: 1
     path: Assets/Scenes/LoadFirst.unity
     guid: 16957a763c161a44781cfae663b933db
   - enabled: 1
@@ -35,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Difficulty.unity
     guid: 38c3f9b114784407383b6ff34787b68b
+  - enabled: 1
+    path: Assets/Scenes/TooSlow.unity
+    guid: 4b9e1b8440a514ac38c8b19faa0be73a
   m_configObjects: {}

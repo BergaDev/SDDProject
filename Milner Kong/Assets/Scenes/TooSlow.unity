@@ -1023,7 +1023,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: You've Died
+  m_Text: You are slow
 --- !u!222 &1116992666
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1477,7 +1477,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOL
+  m_Text: You are ded now
 --- !u!222 &1902495475
 CanvasRenderer:
   m_ObjectHideFlags: 0
