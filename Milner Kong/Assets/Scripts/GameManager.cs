@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
         
         DontDestroyOnLoad(gameObject);
         diffchosen = (diffchosen + UniVar.UniDiff);
+        //Remember order that this is executed in, hvaing diff at 0 on game start won't work properly
         NewGame();
         
         //Starting as soon as loadfirst scene is loaded, then movies on to first 
