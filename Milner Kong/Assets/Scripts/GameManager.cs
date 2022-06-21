@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public static int lives;
     public static int score;
     public static int gamescore;
-    
+    public static int diffchosen = 2;
     public int Round = 0;
 
    // public float timer = 0.0f;
@@ -53,10 +53,20 @@ public class GameManager : MonoBehaviour
     private void NewGame()
     {
         lives = 3;
-        score = 1000;
+        //score = 1000;
         Round = 1;
         // Setting variables to correct counts for game start
-
+		
+		if (diffchosen == 1){
+			score = 1000;
+		}
+		else if (diffchosen == 2){
+			score = 1250;
+		}	
+		else if (diffchosen == 3){
+			score = 1500;
+		}
+		
         LoadLevel(3);
         Debug.Log("Loading LevelOrder " + level);
         //Update this number to match load order in build settings, if not set to the right number a wrong level will be loaded instead
