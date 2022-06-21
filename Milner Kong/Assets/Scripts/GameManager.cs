@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public static int lives;
     public static int score;
     public static int gamescore;
-    public static int diffchosen = 2;
+    public static int diffchosen;
     public int Round = 0;
 
    // public float timer = 0.0f;
@@ -28,7 +28,9 @@ public class GameManager : MonoBehaviour
     {
         
         DontDestroyOnLoad(gameObject);
+        diffchosen = (diffchosen + UniVar.UniDiff);
         NewGame();
+        
         //Starting as soon as loadfirst scene is loaded, then movies on to first 
         
     }
@@ -41,10 +43,7 @@ public class GameManager : MonoBehaviour
 		if (gamescore >= highscore){
 		highscore = gamescore;
 		}
-		else{
-		Debug.Log(gamescore);
-		};
-		Debug.Log(highscore);
+		
 		
         //Debug.Log("Time is " + timecheck);
         //Used for testing that time is actually counting
@@ -66,6 +65,9 @@ public class GameManager : MonoBehaviour
 		else if (diffchosen == 3){
 			score = 1500;
 		}
+        else if (diffchosen == 0){
+            Debug.Log("You idiot");
+        }
 		
         LoadLevel(3);
         Debug.Log("Loading LevelOrder " + level);
