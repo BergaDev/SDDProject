@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
    // public int seconds = 0;
     public float timer = 0.0f;
     public static int timecheck = 0;
+	public static int highscore = 0;
 
    
     
@@ -28,14 +29,23 @@ public class GameManager : MonoBehaviour
         
         DontDestroyOnLoad(gameObject);
         NewGame();
+        //Starting as soon as loadfirst scene is loaded, then movies on to first 
         
-        Debug.Log("Initalised correctly");
     }
     void Update()
     {
         timer += Time.deltaTime;
         timecheck = (int) timer;
         gamescore = score - timecheck;
+		// Updating multiple varibles that keep track of points/time across the game, some are here because for easier testing
+		if (gamescore >= highscore){
+		highscore = gamescore;
+		}
+		else{
+		Debug.Log(gamescore);
+		};
+		Debug.Log(highscore);
+		
         //Debug.Log("Time is " + timecheck);
         //Used for testing that time is actually counting
     }
@@ -79,14 +89,16 @@ public class GameManager : MonoBehaviour
         Debug.Log("Points won" +score);
 
         int nextLevel = level + 1;
+		//Updates variable to load next level 
 
         if (nextLevel < SceneManager.sceneCountInBuildSettings) {
             LoadLevel(nextLevel);
         } else {
             LoadLevel(1);
         }
+		//Loads next level
     }
-
+	//Executes when player is hit
     public void LevelFailed()
     {
         lives = lives - 1;
@@ -95,6 +107,7 @@ public class GameManager : MonoBehaviour
 
             if (timecheck <= 4){
                 TimeLOL();
+				//Corrects for double death
             } 
             else {
                 LoadLevel(7);
@@ -126,12 +139,6 @@ public class GameManager : MonoBehaviour
     }
 
     
-    /*
-    public void EnsureOneHit()
-    {
-        if 
-    }
-    */
-
+    
    
 }
