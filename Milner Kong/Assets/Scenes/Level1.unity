@@ -2564,6 +2564,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8091076859035740571, guid: ca8508c7690d44108978b3795995d128, type: 3}
+      propertyPath: m_Size.x
+      value: 15.48505
+      objectReference: {fileID: 0}
+    - target: {fileID: 8091076859035740571, guid: ca8508c7690d44108978b3795995d128, type: 3}
+      propertyPath: m_Offset.x
+      value: 5.3392725
+      objectReference: {fileID: 0}
     - target: {fileID: 8091076859035740646, guid: ca8508c7690d44108978b3795995d128, type: 3}
       propertyPath: m_Name
       value: Ben

@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
 // mapping here. Work smarter not harder 
         direction.x = Input.GetAxis("Horizontal") * moveSpeed;
 
-        // Prevent gravity from building up infinitely
+        
         if (grounded) {
             direction.y = Mathf.Max(direction.y, -1f);
         }
