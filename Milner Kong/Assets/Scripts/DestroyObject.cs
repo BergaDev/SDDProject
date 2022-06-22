@@ -21,3 +21,5 @@ public class DestroyObject : MonoBehaviour
         Destroy (GameObject.FindWithTag("PublicVar"));
     }
 }
+// Makes sure that on death screen you do not have two instances of gamemanger running
+//This prevents another instance of double death 

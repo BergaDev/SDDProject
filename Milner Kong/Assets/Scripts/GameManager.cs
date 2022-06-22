@@ -11,7 +11,9 @@ public class GameManager : MonoBehaviour
     
     public static int lives;
     public static int score = 10000;
-    public static int gamescore;
+    public static int gamescore =1;
+    public static int HighScoreSave = 0;
+    public static int GameScoreSave = 0;
     public static int diffchosen;
     public int Round = 0;
 
@@ -40,13 +42,14 @@ public class GameManager : MonoBehaviour
         timecheck = (int) timer;
         gamescore = score - timecheck;
 		// Updating multiple varibles that keep track of points/time across the game, some are here because for easier testing
-		if (gamescore >= highscore){
-		highscore = gamescore;
-		}
-        if (gamescore <0){
-            LoadLevel(9);
-            //Time ran out, death
-        }
+		
+        if (score <=0){
+           score = score + 5;
+            //SaveGame();
+            //LoadLevel(6);
+            //Time ran out, death, not using, breaks when loading a new game after death
+        } 
+        
 		
 		
         //Debug.Log("Time is " + timecheck);
@@ -72,7 +75,8 @@ public class GameManager : MonoBehaviour
         else if (diffchosen == 0){
             Debug.Log("You idiot");
         }
-		
+        //Setting/checking difficulty
+		PlayerPrefs.DeleteKey("GameScoreSave");
         LoadLevel(2);
         Debug.Log("Loading LevelOrder " + level);
         //Update this number to match load order in build settings, if not set to the right number a wrong level will be loaded instead
@@ -101,9 +105,12 @@ public class GameManager : MonoBehaviour
 
     public void LevelComplete()
     {
-        score += 1000;
-        Debug.Log("Points won" +score);
-
+        //score += 1000;
+        //Debug.Log("Points won" +score);
+        //One level only now, not needed
+        HighScoreCalc();
+        GameFinishCalc();
+        SaveGame();
         int nextLevel = level + 1;
 		//Updates variable to load next level 
 
@@ -126,7 +133,10 @@ public class GameManager : MonoBehaviour
 				//Corrects for double death
             } 
             else {
-                LoadLevel(6);
+                HighScoreCalc();
+                GameFinishCalc();
+                SaveGame();
+                LoadLevel(4);
                 //Update scene number when reordering scenes
                 Debug.Log("Subprogram Test, sending to DeathScene");
             }
@@ -134,6 +144,8 @@ public class GameManager : MonoBehaviour
             
         } 
         else if (timecheck>=4){
+            
+            SaveGame();
             timer = 0.0f;
             LoadLevel(level);
             Debug.Log("Subprogram test, lives left = " + lives);
@@ -145,7 +157,21 @@ public class GameManager : MonoBehaviour
         Destroy (GameObject.FindWithTag("PublicVar"));
     }
 
-    
+    public void SaveGame()
+    {
+        PlayerPrefs.SetInt("GameScoreSave", GameScoreSave);
+        PlayerPrefs.SetInt("HighScoreSave", HighScoreSave);
+       // PlayerPrefs.SetInt("lives", lives);
+       //Saving scores on game end
+    }
+
+    public void LoadGame()
+    {
+        PlayerPrefs.GetInt("gamescore");
+        PlayerPrefs.GetInt("highscore");
+       // PlayerPrefs.GetInt("lives");
+       //Loading scores on game start
+    }
 
     public void TimeLOL()
     {
@@ -153,6 +179,19 @@ public class GameManager : MonoBehaviour
         lives = lives + 1;
 
         //Double lives lost corrected
+    }
+
+    public void HighScoreCalc()
+    {
+        if (gamescore >= highscore){
+		highscore = gamescore;
+		}
+    }
+    //Calculates gamescore on game end
+    public void GameFinishCalc(){
+        HighScoreSave = HighScoreSave + highscore;
+        GameScoreSave = GameScoreSave + gamescore;
+        //Calculates scores to save on game end 
     }
 
     public void HitCalc()
@@ -167,6 +206,7 @@ public class GameManager : MonoBehaviour
                 score = (score - 200);
             }
     }
+    //Calculating points to be taken when hit by barrel
     
    
 }

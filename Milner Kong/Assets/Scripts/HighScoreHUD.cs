@@ -10,13 +10,13 @@ public class HighScoreHUD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        //PlayerPrefs.GetInt(highscore);
     }
 
     // Update is called once per frame
     void Update()
     {
-        HighScoreDisplay = GameManager.highscore;
+        HighScoreDisplay = PlayerPrefs.GetInt("HighScoreSave");
         HighScoreDis.text = HighScoreDisplay.ToString();
     }
 }

@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
     {
         InvokeRepeating(nameof(AnimateSprite), 1f/12f, 1f/12f);
     }
-
+    // The four srites that animate when Ryan moves 
     private void OnDisable()
     {
         CancelInvoke();
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
         Vector3 size = collider.bounds.size;
         size.y += 0.1f;
         size.x /= 2f;
-
+    // Collisions
         int amount = Physics2D.OverlapBoxNonAlloc(transform.position, size, 0, overlaps);
 
         for (int i = 0; i < amount; i++)
@@ -60,10 +60,10 @@ public class Player : MonoBehaviour
 
             if (hit.layer == LayerMask.NameToLayer("Ground"))
             {
-                // Only set as grounded if the platform is below the player
+                // If standing set as grounded
                 grounded = hit.transform.position.y < (transform.position.y - 0.5f);
 
-                // Turn off collision on platforms the player is not grounded to
+                // No collisions if not standing on anything
                 Physics2D.IgnoreCollision(overlaps[i], collider, !grounded);
             }
             else if (hit.layer == LayerMask.NameToLayer("Ladder"))
@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
             spriteRenderer.sprite = runSprites[spriteIndex];
         }
     }
-
+    // How the above animtions are called
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Objective"))
@@ -135,5 +135,6 @@ public class Player : MonoBehaviour
             FindObjectOfType<GameManager>().LevelFailed();
         }
     }
-
+        //Finds what type of hit is happening, then in gamemanger script
+        //gets it to make the relevant action
 }

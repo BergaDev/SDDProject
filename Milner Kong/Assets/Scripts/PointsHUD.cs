@@ -20,3 +20,4 @@ public class PointsHUD : MonoBehaviour
         PointsDisplay.text = PointsCount.ToString();
     }
 }
+//How points or any varible is displayed in a text box, this is the script that is copy pasted across game

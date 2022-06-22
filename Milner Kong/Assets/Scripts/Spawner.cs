@@ -16,5 +16,5 @@ public class Spawner : MonoBehaviour
         Instantiate(prefab, transform.position, Quaternion.identity);
         Invoke(nameof(Spawn), Random.Range(minTime, maxTime));
     }
-
+        //Chose a time to spit out the next barrel 
 }
